@@ -1,0 +1,169 @@
+<html>
+<head>
+<title>KongaTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #cf8e6d;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+KongaTest.java</font>
+</center></td></tr></table>
+<pre>     <span class="s1">package </span><span class="s0">test</span><span class="s2">;</span>
+
+<span class="s1">import </span><span class="s0">org</span><span class="s2">.</span><span class="s0">openqa</span><span class="s2">.</span><span class="s0">selenium</span><span class="s2">.</span><span class="s0">By</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">org</span><span class="s2">.</span><span class="s0">openqa</span><span class="s2">.</span><span class="s0">selenium</span><span class="s2">.</span><span class="s0">WebDriver</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">org</span><span class="s2">.</span><span class="s0">openqa</span><span class="s2">.</span><span class="s0">selenium</span><span class="s2">.</span><span class="s0">WebElement</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">org</span><span class="s2">.</span><span class="s0">openqa</span><span class="s2">.</span><span class="s0">selenium</span><span class="s2">.</span><span class="s0">chrome</span><span class="s2">.</span><span class="s0">ChromeDriver</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">org</span><span class="s2">.</span><span class="s0">testng</span><span class="s2">.</span><span class="s0">annotations</span><span class="s2">.</span><span class="s0">AfterTest</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">org</span><span class="s2">.</span><span class="s0">testng</span><span class="s2">.</span><span class="s0">annotations</span><span class="s2">.</span><span class="s0">BeforeTest</span><span class="s2">;</span>
+<span class="s1">import </span><span class="s0">org</span><span class="s2">.</span><span class="s0">testng</span><span class="s2">.</span><span class="s0">annotations</span><span class="s2">.</span><span class="s0">Test</span><span class="s2">;</span>
+
+
+    <span class="s1">public class </span><span class="s0">KongaTest </span><span class="s2">{</span>
+        <span class="s3">//import the selenium WebDriver</span>
+        <span class="s1">private </span><span class="s0">WebDriver driver</span><span class="s2">;</span>
+        <span class="s0">@BeforeTest</span>
+        <span class="s1">public void </span><span class="s0">start</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException</span><span class="s2">{</span>
+            <span class="s3">//locate where the chromedriver is</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">setProperty</span><span class="s2">(</span><span class="s4">&quot;webdriver.chrome.driver&quot;</span><span class="s2">, </span><span class="s4">&quot;C:</span><span class="s1">\\</span><span class="s4">Users</span><span class="s1">\\</span><span class="s4">NnamdiC</span><span class="s1">\\</span><span class="s4">Downloads</span><span class="s1">\\</span><span class="s4">FacebookTest2</span><span class="s1">\\</span><span class="s4">resources</span><span class="s1">\\</span><span class="s4">chromedriver_win32</span><span class="s1">\\</span><span class="s4">chromedriver.exe&quot;</span><span class="s2">);</span>
+            <span class="s3">//1. Open your chrome browser</span>
+            <span class="s0">driver </span><span class="s2">= </span><span class="s1">new </span><span class="s0">ChromeDriver</span><span class="s2">();</span>
+            <span class="s3">//2. Input your Konga website URL</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">get</span><span class="s2">(</span><span class="s4">&quot;https://www.konga.com&quot;</span><span class="s2">);</span>
+            <span class="s3">//3. Maximize the browser</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">manage</span><span class="s2">().</span><span class="s0">window</span><span class="s2">().</span><span class="s0">maximize</span><span class="s2">();</span>
+        <span class="s2">}</span>
+        <span class="s0">@Test</span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">0</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">positiveSignIn</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//4. Click on the Login/Signup button to sign in.</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">nav-bar-fix</span><span class="s1">\&quot;</span><span class="s4">]/div[1]/div/div/div[4]/a&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">3000</span><span class="s2">);</span>
+            <span class="s3">//5. Input your Username</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">id</span><span class="s2">(</span><span class="s4">&quot;username&quot;</span><span class="s2">)).</span><span class="s0">sendKeys</span><span class="s2">(</span><span class="s4">&quot;nnamdicchukwuka@gmail.com&quot;</span><span class="s2">);</span>
+            <span class="s3">//6. Input your Password</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">id</span><span class="s2">(</span><span class="s4">&quot;password&quot;</span><span class="s2">)).</span><span class="s0">sendKeys</span><span class="s2">(</span><span class="s4">&quot;Konga2024$%&quot;</span><span class="s2">);</span>
+            <span class="s3">//7. Click the Login button</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">app-content-wrapper</span><span class="s1">\&quot;</span><span class="s4">]/div[3]/section/section/aside/div[2]/div/form/div[3]/button&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">10000</span><span class="s2">);</span>
+
+        <span class="s2">}</span>
+        <span class="s0">@Test</span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">1</span><span class="s2">)</span>
+
+        <span class="s1">public void </span><span class="s0">selectItem</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//9. From All Categories: Click on Computer and Accessories</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">mainContent</span><span class="s1">\&quot;</span><span class="s4">]/section[1]/div[1]/div/div[2]/h1&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//10. Click on Laptop Subcategory</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">mainContent</span><span class="s1">\&quot;</span><span class="s4">]/section[3]/section/div/section/div[2]/div[2]/ul/li[3]/a&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//11. Click on the Apple Macbook</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">mainContent</span><span class="s1">\&quot;</span><span class="s4">]/section[3]/section/div/section/div[2]/div[2]/ul/li[4]/a/ul/li[1]/a/label/span&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//12. Choose an item and add to the cart</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">mainContent</span><span class="s1">\&quot;</span><span class="s4">]/section[3]/section/section/section/section/ul/li[2]/div/div/div[2]/form/div[3]/button&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//13. Click the My Cart button</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">nav-bar-fix</span><span class="s1">\&quot;</span><span class="s4">]/div[1]/div/div/a[2]/span[1]&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">10000</span><span class="s2">);</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Item selected&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s0">@Test</span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">2</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">checkOutAndSelectAddAddress</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//14. Click on the Checkout button</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">app-content-wrapper</span><span class="s1">\&quot;</span><span class="s4">]/div[3]/section/section/aside/div[3]/div/div[2]/button&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">5000</span><span class="s2">);</span>
+            <span class="s3">//15. Click on Change</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">mainContent</span><span class="s1">\&quot;</span><span class="s4">]/div/form/div/div[1]/section[1]/div/div/div[1]/div[2]/div/button&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//16. Click on &quot;add delivery address&quot;</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">mainContent</span><span class="s1">\&quot;</span><span class="s4">]/div/form/div/div[1]/section[1]/div/div/div[2]/div[1]/div[2]/div[1]/div/button&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//17. Select an address</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">id</span><span class="s2">(</span><span class="s4">&quot;6466113&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//18. Click on use this address</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">app-content-wrapper</span><span class="s1">\&quot;</span><span class="s4">]/div[2]/section/section/aside/div[3]/div/div/div/a&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">10000</span><span class="s2">);</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Address selected&quot;</span><span class="s2">);</span>
+
+
+        <span class="s2">}</span>
+
+        <span class="s0">@Test </span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">3</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">makePayment</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//19. Click on pay now</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">xpath</span><span class="s2">(</span><span class="s4">&quot;//*[@id=</span><span class="s1">\&quot;</span><span class="s4">mainContent</span><span class="s1">\&quot;</span><span class="s4">]/div/form/div/div[1]/section[2]/div/div[2]/div[1]/div[1]/span/input&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s3">//20. Click on continue to make payment</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">name</span><span class="s2">(</span><span class="s4">&quot;placeOrder&quot;</span><span class="s2">)).</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Continue to payment&quot;</span><span class="s2">);</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">8000</span><span class="s2">);</span>
+
+        <span class="s2">}</span>
+        <span class="s0">@Test </span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">4</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">selectCardMethod</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//21. Select a card payment method</span>
+            <span class="s3">//21a. change from default to iframe</span>
+            <span class="s0">WebElement paymethod </span><span class="s2">= </span><span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">tagName</span><span class="s2">(</span><span class="s4">&quot;iframe&quot;</span><span class="s2">));</span>
+
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">switchTo</span><span class="s2">().</span><span class="s0">frame</span><span class="s2">(</span><span class="s4">&quot;kpg-frame-component&quot;</span><span class="s2">);</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">5000</span><span class="s2">);</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Payment Method&quot;</span><span class="s2">);</span>
+            <span class="s3">//21b. Select card payment method</span>
+            <span class="s0">WebElement cardpayment </span><span class="s2">= </span><span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">className</span><span class="s2">(</span><span class="s4">&quot;Card&quot;</span><span class="s2">));</span>
+            <span class="s0">cardpayment</span><span class="s2">.</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Select card method&quot;</span><span class="s2">);</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">10000</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s0">@Test </span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">5</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">inputCardDetails</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//22. Input invalid card details</span>
+            <span class="s0">WebElement carddigit </span><span class="s2">= </span><span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">id</span><span class="s2">(</span><span class="s4">&quot;card-number&quot;</span><span class="s2">));</span>
+            <span class="s0">carddigit</span><span class="s2">.</span><span class="s0">sendKeys</span><span class="s2">(</span><span class="s4">&quot;4682190505171111&quot;</span><span class="s2">);</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">3000</span><span class="s2">);</span>
+
+            <span class="s3">//23. Input date in its field</span>
+            <span class="s0">WebElement datedigit </span><span class="s2">= </span><span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">id</span><span class="s2">(</span><span class="s4">&quot;expiry&quot;</span><span class="s2">));</span>
+            <span class="s0">datedigit</span><span class="s2">.</span><span class="s0">sendKeys</span><span class="s2">(</span><span class="s4">&quot;1126&quot;</span><span class="s2">);</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">3000</span><span class="s2">);</span>
+
+        <span class="s2">}</span>
+
+        <span class="s0">@Test </span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">6</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">errorMessage</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+
+            <span class="s3">//24 Print out the error message</span>
+            <span class="s0">WebElement error </span><span class="s2">= </span><span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">id</span><span class="s2">(</span><span class="s4">&quot;card-number_unhappy&quot;</span><span class="s2">));</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s0">error</span><span class="s2">.</span><span class="s0">getText</span><span class="s2">());</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">5000</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">@Test </span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">7</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">closeFrame</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//25. Close the Iframe that displays input card details</span>
+            <span class="s0">WebElement exitframe </span><span class="s2">= </span><span class="s0">driver</span><span class="s2">.</span><span class="s0">findElement</span><span class="s2">(</span><span class="s0">By</span><span class="s2">.</span><span class="s0">className</span><span class="s2">(</span><span class="s4">&quot;data-card__close&quot;</span><span class="s2">));</span>
+            <span class="s0">exitframe</span><span class="s2">.</span><span class="s0">click</span><span class="s2">();</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Exit payment method iframe&quot;</span><span class="s2">);</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">5000</span><span class="s2">);</span>
+
+        <span class="s2">}</span>
+        <span class="s0">@Test </span><span class="s2">(</span><span class="s0">priority </span><span class="s2">= </span><span class="s5">8</span><span class="s2">)</span>
+        <span class="s1">public void </span><span class="s0">exitIFrame</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException </span><span class="s2">{</span>
+            <span class="s3">//26. Exit iFrame web</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">switchTo</span><span class="s2">().</span><span class="s0">defaultContent</span><span class="s2">();</span>
+            <span class="s0">Thread</span><span class="s2">.</span><span class="s0">sleep</span><span class="s2">(</span><span class="s5">5000</span><span class="s2">);</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Restore default page&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">@AfterTest</span>
+        <span class="s1">public void </span><span class="s0">quitBrowser</span><span class="s2">() </span><span class="s1">throws </span><span class="s0">InterruptedException</span><span class="s2">{</span>
+            <span class="s3">//27. Quit your browser</span>
+            <span class="s0">driver</span><span class="s2">.</span><span class="s0">quit</span><span class="s2">();</span>
+            <span class="s0">System</span><span class="s2">.</span><span class="s0">out</span><span class="s2">.</span><span class="s0">println</span><span class="s2">(</span><span class="s4">&quot;Quit browser&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+    <span class="s2">}</span>
+</pre>
+</body>
+</html>
